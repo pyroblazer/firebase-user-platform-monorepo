@@ -1,0 +1,47 @@
+{
+  "name": "backend",
+  "scripts": {
+    "dev": "nodemon --exec npm run serve",
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "serveemulator": "tsc && firebase emulators:start",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "ts-node src/core/app.ts",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "jest --config ./jest.config.ts"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "dist/index.js",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^13.3.0",
+    "firebase-functions": "^6.3.2",
+    "supertest": "^7.1.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.12",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.11.0",
+    "firebase-functions-test": "^3.4.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10",
+    "ts-jest": "^29.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
